@@ -87,7 +87,6 @@ export default class Mario extends Phaser.GameObjects.Sprite {
             }
         }
 
-
         let input = {
             left: keys.left.isDown || this.scene.touchControls.left,
             right: keys.right.isDown || this.scene.touchControls.right,
