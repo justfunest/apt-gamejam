@@ -6,12 +6,14 @@ class CocktailScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('arrow-up', 'assets/images/kb-arrow-up.png');
+    this.load.image('vodka', 'assets/images/kb-arrow-up.png')
+    this.load.image('beer', 'assets/images/kb-arrow-left.png')
+    this.load.image('whiskey', 'assets/images/kb-arrow-down.png')
+    this.load.image('soda', 'assets/images/kb-arrow-right.png')
   }
 
   create() {
-    const sprite = this.add.sprite(200, 200, 'arrow-up')
-    this.field = new Field(sprite)
+    this.field = new Field(this)
   }
 
   update(time, delta) {
