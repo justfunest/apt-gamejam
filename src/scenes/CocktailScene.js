@@ -24,13 +24,8 @@ class CocktailScene extends Phaser.Scene {
     this.audioManager = new AudioManager(this);
     this.audioManager = new AnimationManager(this);
     this.character = new Charater(this, 'sprite');
-
     this.field = new Field(this, this.character);
-      var frameNames = this.anims.generateFrameNames('angry', {
-          start: 1, end: 8, zeroPad: 4,
-          prefix: 'capguy/walk/', suffix: '.png'
-      });
-      console.log(frameNames)
+
     this.input.on('gameobjectup', (pointer, gameObj) => {
       gameObj.emit('clicked', gameObj)
     }, this)

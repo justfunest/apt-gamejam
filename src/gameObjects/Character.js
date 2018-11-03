@@ -10,7 +10,6 @@ class Character extends Phaser.GameObjects.Sprite {
         this.sprite = scene.add.sprite(this.state.position.x, this.state.position.y, 'angry', 'k01.png');
         this.sprite.setScale(0.5, 0.5);
         this.addHealthBar();
-        this.animate(ANIMATIONS.drunk.name)
     }
 
     addHealthBar() {
@@ -28,6 +27,12 @@ class Character extends Phaser.GameObjects.Sprite {
         if (this.state.soberness.current > this.state.soberness.max) {
             this.state.soberness.current = this.state.soberness.max;
         }
+
+        let keys = Object.keys(ANIMATIONS);
+        console.log(keys)
+        let rnd = Math.floor(Math.random() * (keys.length-1 - 0) ) + 0;
+        console.log(keys[rnd])
+        this.animate(ANIMATIONS[keys[rnd]].name)
     }
 
     getSober() {

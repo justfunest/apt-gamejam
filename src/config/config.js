@@ -28,20 +28,17 @@ export const ANIMATIONS = {
     angry : {
        name : 'angry',
        frames : { start: 1, end: 15, zeroPad: 2, suffix: '.png', prefix: 'k' },
-       frameRate: 10,
-       repeat: -1
+       frameRate: 10
     },
     happy : {
         name : 'happy',
         frames : { start: 1, end: 10, zeroPad: 2, suffix: '.png', prefix: 'o' },
-        frameRate: 10,
-        repeat: -1
+        frameRate: 10
     },
     drunk : {
         name : 'drunk',
         frames : { start: 1, end: 60, zeroPad: 2, suffix: '.png', prefix: 'h' },
-        frameRate: 10,
-        repeat: -1
+        frameRate: 10
     }
 }
 export const CHARACTER_STATE = {
