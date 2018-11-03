@@ -7,7 +7,7 @@ class Character extends Phaser.GameObjects.Sprite {
         super(scene, type);
         this.scene = scene;
         this.state = state;
-        this.sprite = scene.add.sprite(this.state.position.x, this.state.position.y, 'angry', 'k01.png');
+        this.sprite = scene.add.sprite(this.state.position.x, this.state.position.y, 'angry', 'a01.png');
         this.sprite.setScale(0.65, 0.65);
         this.addHealthBar();
     }
