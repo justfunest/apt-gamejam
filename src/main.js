@@ -20,8 +20,8 @@ const config = {
     // },
     scene: [
         //TestScene
-        CocktailScene
-        // GameOverScene
+        CocktailScene,
+        GameOverScene,
     ]
 };
 
