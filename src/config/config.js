@@ -1,47 +1,58 @@
 export const components =  [
     {
         id: 'vodka',
-        name: 'Vodka'
+        name: 'Vodka',
+        sound: ['pour_1', 'pour_2', 'pour_3']
     },
     {
         id: 'whiskey',
-        name: 'Whiskey'
+        name: 'Whiskey',
+        sound: ['pour_1', 'pour_2', 'pour_3']
     },
     {
         id: 'champagne',
-        name: 'Champagne'
+        name: 'Champagne',
+        sound: ['pour_1', 'pour_2', 'pour_3']
     },
     {
         id: 'champagne-glass',
-        name: 'Champagne glass'
+        name: 'Champagne glass',
+        sound: ['pour_1', 'pour_2', 'pour_3']
     },
     {
         id: 'martini-glass',
-        name: 'Martini glass'
+        name: 'Martini glass',
+        sound: ['pour_1', 'pour_2', 'pour_3']
     },
     {
         id: 'shot-glass',
-        name: 'Shot glass'
+        name: 'Shot glass',
+        sound: ['pour_1', 'pour_2', 'pour_3']
     },
     {
         id: 'whiskey-glass',
-        name: 'Whiskey glass'
+        name: 'Whiskey glass',
+        sound: ['pour_1', 'pour_2', 'pour_3']
     },
     {
         id: 'red-bull',
-        name: 'Red bull'
+        name: 'Red bull',
+        sound: ['can_open_1', 'can_open_2']
     },
     {
         id: 'olive',
-        name: 'Olive'
+        name: 'Olive',
+        sound: ['pour_1', 'pour_2', 'pour_3']
     },
     {
         id: 'lime',
-        name: 'Lime'
+        name: 'Lime',
+        sound: ['pour_1', 'pour_2', 'pour_3']
     },
     {
         id: 'ice',
-        name: 'Ice'
+        name: 'Ice',
+        sound: ['ice']
     },
 ]
 
@@ -106,10 +117,6 @@ export const AUDIO_STATE = {
             'filename' : 'assets/music/ftus_soda_can_open_ring_pull.mp3'
         },
         {
-            'id' : 'slurp',
-            'filename' : 'assets/music/human_slurp_drink_from_cup_with_gulps_001.mp3'
-        },
-        {
             'id' : 'can_open_2',
             'filename' : 'assets/music/zapsplat_food_drink_can_soda_open_short_18002.mp3'
         },
@@ -123,7 +130,7 @@ export const AUDIO_STATE = {
         },
         {
             'id' : 'pour_2',
-            'filename' : 'assets/music/zapsplat_food_drink_soda_beer_pour_small_amount_glass_fizz_001_21657.mp33'
+            'filename' : 'assets/music/zapsplat_food_drink_soda_beer_pour_small_amount_glass_fizz_001_21657.mp3'
         },
         {
             'id' : 'pour_3',
@@ -134,9 +141,13 @@ export const AUDIO_STATE = {
             'filename' : 'assets/music/zapsplat_human_burp_soda_001_18005.mp3'
         },
         {
-            'id' : 'slurp',
+            'id' : 'slurp_1',
             'filename' : 'assets/music/zapsplat_human_drink_slurp_soda_from_can_single_001_18014.mp3'
-        }
+        },
+        {
+            'id' : 'slurp_2',
+            'filename' : 'assets/music/human_slurp_drink_from_cup_with_gulps_001.mp3'
+        },
     ]
 };
 

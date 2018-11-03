@@ -1,4 +1,5 @@
 import {default as Timer} from '../Timer'
+import * as lodash from 'lodash'
 
 const offsetX = 120
 const offsetY = 120
@@ -11,7 +12,8 @@ const dropDuration = 250
 
 class Component {
   constructor(scene, field, spec, idxRow, idxCol, isDropping = false) {
-    this.field = field
+    this.field = field;
+    this.scene = scene;
     this.spec = spec
     this.active = false
     this.idxRow = idxRow
@@ -54,7 +56,11 @@ class Component {
     } else {
       this.active = true
       this.outline.y = this.sprite.y
-      this.outline.visible = true
+      this.outline.visible = true;
+      if (this.spec.hasOwnProperty('sound')) {
+        let soundToPlay = lodash.sample(this.spec.sound);
+        this.scene.sound.play(soundToPlay);
+      }
     }
     this.field.checkMatch()
   }
