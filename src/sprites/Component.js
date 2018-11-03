@@ -42,6 +42,7 @@ class Component {
   }
 
   onClick() {
+    // TODO: better highlighting
     if (this.active) {
       this.active = false
       this.sprite.tint = 0xffffff

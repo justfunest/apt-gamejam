@@ -15,7 +15,8 @@ class CocktailScene extends Phaser.Scene {
     AnimationManager.loadResources(this);
 
     // TODO: Possibly a different font?
-    this.load.bitmapFont('calibri', 'assets/fonts/calibri_0.png', 'assets/fonts/calibri.fnt');
+    // this.load.bitmapFont('calibri', 'assets/fonts/calibri_0.png', 'assets/fonts/calibri.fnt');
+    this.load.bitmapFont('system', 'assets/fonts/system-default-font.png', 'assets/fonts/system-default-font.fnt');
   }
 
   create() {
