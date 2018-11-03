@@ -1,13 +1,17 @@
 import {default as Timer} from '../Timer'
+import {lerp} from '../lerp'
 
-const displayDuration = 400
+const displayDuration = 500
+const origSize = 32
+const destSize = 64
 
 class MatchText {
   constructor(scene) {
     this.scene = scene
     // TODO: placement
     // TODO: better hiding
-    this.text = this.scene.add.bitmapText(300, 300, 'font', '', 64)
+    this.text = this.scene.add.bitmapText(360, 360, 'calibri', '', 32)
+    // TODO: different tint
     this.text.tint = 0xf05050
 
     this.isDisplaying = false
@@ -15,11 +19,10 @@ class MatchText {
   }
 
   show(text) {
-    // TODO: animate
-    this.text.z = -1000
-    // TODO: don't need to uppercase with a different font
-    this.text.text = text.toUpperCase()
+    this.text.text = text
     this.isDisplaying = true
+    this.text.fontSize = origSize
+    this.text.visible = true
     this.displayTimer.start()
   }
 
@@ -30,6 +33,12 @@ class MatchText {
       if (elapsed > displayDuration) {
         this.text.text = ''
         this.isDisplaying = false
+        this.text.visible = false
+      } else {
+        // TODO: animate angle
+        // TODO: animate opacity
+        const fraction = elapsed / displayDuration
+        this.text.fontSize = lerp(origSize, destSize, fraction)
       }
     }
   }

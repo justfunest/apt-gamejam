@@ -23,4 +23,5 @@ export default [
     components: ['vodka', 'martini-glass'],
     power: 15
   }
+  // TODO: smooth operator: whiskey and red bull
 ]

@@ -20,7 +20,7 @@ class CocktailScene extends Phaser.Scene {
     this.load.image('healthbar', 'assets/images/bar.png');
 
     // TODO: Possibly a different font?
-    this.load.bitmapFont('font', 'assets/fonts/font.png', 'assets/fonts/font.fnt');
+    this.load.bitmapFont('calibri', 'assets/fonts/calibri_0.png', 'assets/fonts/calibri.fnt');
   }
 
   create() {
@@ -29,6 +29,9 @@ class CocktailScene extends Phaser.Scene {
     this.input.on('gameobjectup', (pointer, gameObj) => {
       gameObj.emit('clicked', gameObj)
     }, this)
+
+    // TODO: lose condition
+    // TODO: win condition
   }
 
   update(time, delta) {
