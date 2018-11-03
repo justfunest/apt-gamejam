@@ -11,7 +11,7 @@ class Component {
     this.idxRow = idxRow
     this.idxCol = idxCol
 
-    this.sprite = scene.add.sprite(offsetX + tileWidth * idxCol, offsetY + tileHeight* idxRow, spec.id)
+    this.sprite = scene.add.sprite(offsetX + tileWidth * idxCol, offsetY + tileHeight * idxRow, spec.id)
     this.sprite.setInteractive()
     this.sprite.on('clicked', this.onClick.bind(this))
   }
@@ -25,6 +25,12 @@ class Component {
       this.sprite.tint = 0.7 * 0xffffff
     }
     this.field.checkMatch()
+  }
+
+  drop() {
+    this.idxRow++
+    // TODO: animate drop
+    this.sprite.y = offsetY + tileHeight * this.idxRow
   }
 
   destroy() {
