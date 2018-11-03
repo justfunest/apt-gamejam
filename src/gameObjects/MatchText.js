@@ -3,21 +3,21 @@ import * as lodash from 'lodash'
 import {default as Timer} from '../Timer'
 import {lerp} from '../lerp'
 
-const displayDuration = 1000
-const alphaMidPoint = 700
+const displayDuration = 1500
+const alphaMidPoint = 1200
 const origSize = 32
 const destSize = 64
-const origAlpha = 0.1
+const origAlpha = 0.3
 const destAlpha = 1
 
 class MatchText {
   constructor(scene) {
     this.scene = scene
     // TODO: placement
-    this.text = this.scene.add.bitmapText(360, 360, 'system', '', origSize)
+    this.text = this.scene.add.bitmapText(150, 360, 'system', '', origSize)
     this.text.depth = 10000
     // TODO: different tint
-    this.text.tint = 0xf08070
+    this.text.tint = 0xe04050
 
     this.isDisplaying = false
     this.displayTimer = new Timer(displayDuration)

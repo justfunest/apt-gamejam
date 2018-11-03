@@ -10,6 +10,7 @@ const numCols = 6
 
 class Field {
   constructor(scene, character) {
+    // TODO: field background overlay
     this.scene = scene
     this.character = character
     this.createMatrix()

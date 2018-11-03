@@ -79,6 +79,7 @@ export const recipes = [
     {
         id: 'champagne',
         name: 'Champagne!',
+        // TODO: garnish with strawberry
         components: ['champagne', 'champagne-glass'],
         power: 5
     },
