@@ -1,5 +1,6 @@
 class Component {
   constructor(scene, spec, idxRow, idxCol) {
+    this.spec = spec
     this.active = false
 
     // TODO: tile width/height
@@ -14,7 +15,7 @@ class Component {
       this.sprite.tint = 0xffffff
     } else {
       this.active = true
-      this.sprite.tint = Math.random() * 0xffffff
+      this.sprite.tint = 0.7 * 0xffffff
     }
   }
 }
