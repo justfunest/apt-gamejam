@@ -8,13 +8,13 @@ class Character extends Phaser.GameObjects.Sprite {
         this.scene = scene;
         this.state = state;
         this.sprite = scene.add.sprite(this.state.position.x, this.state.position.y, 'angry', 'k01.png');
-        this.sprite.setScale(0.5, 0.5);
+        this.sprite.setScale(0.65, 0.65);
         this.addHealthBar();
     }
 
     addHealthBar() {
         let x = this.state.position.x;
-        let y = this.state.position.y -this.sprite.height/4 -20;
+        let y = this.state.position.y -this.sprite.displayHeight/2;
         this.healthBar = new HealthBar(this.scene, x, y, this.state.soberness.max, this.state.soberness.current)
     }
 
@@ -22,6 +22,11 @@ class Character extends Phaser.GameObjects.Sprite {
         this.sprite.anims.play(id)
     }
 
+    updateAnimations() {
+        if(!this.sprite.anims.isPlaying) {
+            this.animate(ANIMATIONS.drunk.name)
+        }
+    }
     drink(recipie) {
         this.state.soberness.current += recipie.power;
         if (this.state.soberness.current > this.state.soberness.max) {
@@ -56,6 +61,7 @@ class Character extends Phaser.GameObjects.Sprite {
             this.getSober();
             this.checkIsAlive();
         }
+        this.updateAnimations();
         this.healthBar.update(this.state.soberness.current);
     }
 

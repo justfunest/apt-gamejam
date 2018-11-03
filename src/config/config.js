@@ -123,7 +123,7 @@ export const IMAGE_STATE = {
 export const ANIMATIONS = {
     angry : {
        name : 'angry',
-       frames : { start: 1, end: 15, zeroPad: 2, suffix: '.png', prefix: 'k' },
+       frames : { start: 1, end: 15, zeroPad: 2, suffix: '.png', prefix: 'a' },
        frameRate: 10
     },
     happy : {
@@ -133,8 +133,9 @@ export const ANIMATIONS = {
     },
     drunk : {
         name : 'drunk',
-        frames : { start: 1, end: 60, zeroPad: 2, suffix: '.png', prefix: 'h' },
-        frameRate: 10
+        frames : { start: 1, end: 60, zeroPad: 2, suffix: '.png', prefix: 'k' },
+        frameRate: 10,
+        repeat: -1
     }
 }
 export const CHARACTER_STATE = {
