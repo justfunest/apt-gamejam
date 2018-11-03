@@ -92,7 +92,7 @@ class Field {
       _this.dropCol(pos.idxRow, pos.idxCol)
     })
 
-    // TODO: spawn new components
+    this.spawnComponents()
   }
 
   destroyComponents(components) {
@@ -120,6 +120,18 @@ class Field {
       component.drop(dropAmount)
     } else {
       dropAmount++
+    }
+  }
+
+  spawnComponents() {
+    for (let idxCol = 0; idxCol < numCols; idxCol++) {
+      let idxRow = 0
+      while (idxRow < numRows && !this.matrix[idxRow][idxCol]) {
+        const spec = lodash.sample(components)
+        const component = new Component(this.scene, this, spec, idxRow, idxCol)
+        this.matrix[idxRow][idxCol] = component
+        idxRow++
+      }
     }
   }
 }
