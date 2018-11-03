@@ -1,23 +1,8 @@
 import HealthBar from '../gameObjects/HealthBar'
-
-export const INITIAL_STATE = {
-    soberness: {
-        max : 500,
-        current: 500,
-        decayRate: 0.05
-    },
-    position: {
-        x: 900,
-        y: 400
-    },
-    alive : true,
-    sprites: {
-        init: 'character'
-    }
-};
+import {CHARACTER_STATE} from "../config/config";
 
 class Character extends Phaser.GameObjects.Sprite {
-    constructor(scene, type, state = INITIAL_STATE) {
+    constructor(scene, type, state = CHARACTER_STATE) {
         super(scene, type);
         this.state = state;
         this.name = 'character';

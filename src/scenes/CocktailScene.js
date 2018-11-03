@@ -1,5 +1,6 @@
 import Field from '../gameObjects/Field'
 import Charater from '../gameObjects/Character'
+import AudioManager from '../gameObjects/AudioManager'
 
 class CocktailScene extends Phaser.Scene {
   constructor(test) {
@@ -13,11 +14,13 @@ class CocktailScene extends Phaser.Scene {
     this.load.image('soda', 'assets/images/kb-arrow-right.png');
     this.load.image('character', 'assets/images/character.png');
     this.load.image('healthbar', 'assets/images/bar.png');
+    AudioManager.loadResources(this);
   }
 
   create() {
     this.field = new Field(this);
     this.character = new Charater(this, 'sprite');
+    this.audioManager = new AudioManager(this);
     this.input.on('gameobjectup', (pointer, gameObj) => {
       gameObj.emit('clicked', gameObj)
     }, this)
