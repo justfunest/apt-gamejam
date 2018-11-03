@@ -32,5 +32,13 @@ export default [
   {
     id: 'whiskey-glass',
     name: 'Whiskey glass'
+  },
+  {
+    id: 'red-bull',
+    name: 'Red bull'
+  },
+  {
+    id: 'olive',
+    name: 'Olive'
   }
 ]

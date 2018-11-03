@@ -9,7 +9,7 @@ export const AUDIO_STATE = {
 
 export const IMAGE_STATE = {
     resources : [
-        {'id' : 'vodka', 'filename' : 'assets/images/kb-arrow-up.png'},
+        {'id' : 'vodka', 'filename' : 'assets/images/vodka.png'},
         {'id' : 'whiskey', 'filename' : 'assets/images/kb-arrow-down.png'},
         {'id' : 'beer', 'filename' : 'assets/images/kb-arrow-left.png'},
         {'id' : 'soda', 'filename' : 'assets/images/kb-arrow-right.png'},
@@ -17,6 +17,8 @@ export const IMAGE_STATE = {
         {'id' : 'martini-glass', 'filename' : 'assets/images/martini-glass.png'},
         {'id' : 'shot-glass', 'filename' : 'assets/images/shot-glass.png'},
         {'id' : 'whiskey-glass', 'filename' : 'assets/images/whiskey-glass.png'},
+        {'id' : 'red-bull', 'filename' : 'assets/images/red-bull.png'},
+        {'id' : 'olive', 'filename' : 'assets/images/olive.png'},
         {'id' : 'character', 'filename' : 'assets/images/character.png'},
         {'id' : 'healthbar', 'filename' : 'assets/images/bar.png'}
 

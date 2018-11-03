@@ -7,17 +7,17 @@ const displayDuration = 1000
 const alphaMidPoint = 700
 const origSize = 32
 const destSize = 64
-const origAlpha = 0
+const origAlpha = 0.1
 const destAlpha = 1
 
 class MatchText {
   constructor(scene) {
     this.scene = scene
     // TODO: placement
-    this.text = this.scene.add.bitmapText(360, 360, 'calibri', '', 32)
+    this.text = this.scene.add.bitmapText(360, 360, 'system', '', origSize)
     this.text.depth = 10000
     // TODO: different tint
-    this.text.tint = 0xf05050
+    this.text.tint = 0xf08070
 
     this.isDisplaying = false
     this.displayTimer = new Timer(displayDuration)
