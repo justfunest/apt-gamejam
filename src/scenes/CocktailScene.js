@@ -13,6 +13,9 @@ class CocktailScene extends Phaser.Scene {
     this.load.image('soda', 'assets/images/kb-arrow-right.png');
     this.load.image('character', 'assets/images/character.png');
     this.load.image('healthbar', 'assets/images/bar.png');
+
+    // TODO: Possibly a different font?
+    this.load.bitmapFont('font', 'assets/fonts/font.png', 'assets/fonts/font.fnt');
   }
 
   create() {
