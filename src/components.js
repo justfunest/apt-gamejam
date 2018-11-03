@@ -6,16 +6,8 @@ export default [
     name: 'Vodka'
   },
   {
-    id: 'beer',
-    name: 'Beer'
-  },
-  {
     id: 'whiskey',
     name: 'Whiskey'
-  },
-  {
-    id: 'soda',
-    name: 'Soda'
   },
   {
     id: 'champagne-glass',

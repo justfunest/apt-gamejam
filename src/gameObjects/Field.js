@@ -111,9 +111,24 @@ class Field {
       }
     })
     this.destroyComponents(selectedComponents)
-    const _this = this
+    const colsToDrop = {}
     positions.forEach((pos) => {
-      _this.dropCol(pos.idxRow, pos.idxCol)
+      const {idxCol} = pos
+      if (colsToDrop[idxCol]) {
+        if (pos.idxRow > colsToDrop[idxCol].idxRow) {
+          colsToDrop[idxCol].idxRow = pos.idxRow
+        }
+      } else {
+        colsToDrop[idxCol] = {
+          idxRow: pos.idxRow,
+          idxCol: pos.idxCol
+        }
+      }
+    })
+    const _this = this
+    Object.keys(colsToDrop).forEach((idxCol) => {
+      const colSpec = colsToDrop[idxCol]
+      _this.dropCol(colSpec.idxRow, colSpec.idxCol)
     })
 
     this.spawnComponents()
@@ -129,23 +144,25 @@ class Field {
   }
 
   dropCol(aboveIdxRow, idxCol) {
+    let dropAmount = 1
     for (let idxRow = aboveIdxRow - 1; idxRow >= 0; idxRow--) {
-      this.dropComponent(idxRow, idxCol)
+      dropAmount = this.dropComponent(idxRow, idxCol, dropAmount)
     }
   }
 
-  dropComponent(idxRow, idxCol) {
-    // BUG: sometimes components don't drop properly
+  dropComponent(idxRow, idxCol, dropAmount) {
     const component = this.matrix[idxRow][idxCol]
-    let dropAmount = 1
+    let newDropAmount = dropAmount
 
     if (component && (idxRow < numRows - 1)) {
       this.matrix[idxRow + dropAmount][idxCol] = component
       this.matrix[idxRow][idxCol] = undefined
       component.drop(dropAmount)
     } else {
-      dropAmount++
+      newDropAmount = dropAmount + 1
     }
+
+    return newDropAmount
   }
 
   spawnComponents() {
