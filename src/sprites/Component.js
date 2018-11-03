@@ -27,8 +27,8 @@ class Component {
     this.field.checkMatch()
   }
 
-  drop() {
-    this.idxRow++
+  drop(amount) {
+    this.idxRow += amount
     // TODO: animate drop
     this.sprite.y = offsetY + tileHeight * this.idxRow
   }

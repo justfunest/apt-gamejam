@@ -43,23 +43,7 @@ class Field {
     const idxMatchedRecipe = this.matchRecipe(selectedComponents)
 
     if (idxMatchedRecipe !== -1) {
-      // TODO: factor out handleMatch
-      // TODO: drink up!
-      
-      const positions = selectedComponents.map((component) => {
-        return {
-          idxRow: component.idxRow,
-          idxCol: component.idxCol
-        }
-      })
-      this.destroyComponents(selectedComponents)
-      const _this = this
-      positions.forEach((pos) => {
-        _this.dropCol(pos.idxRow, pos.idxCol)
-      })
-      console.log(this.matrix)
-
-      // TODO: spawn new components
+      this.handleMatch(selectedComponents, idxMatchedRecipe)
     }
   }
 
@@ -93,6 +77,24 @@ class Field {
     return matches
   }
 
+  handleMatch(selectedComponents, idxMatchedRecipe) {
+    // TODO: drink up!
+      
+    const positions = selectedComponents.map((component) => {
+      return {
+        idxRow: component.idxRow,
+        idxCol: component.idxCol
+      }
+    })
+    this.destroyComponents(selectedComponents)
+    const _this = this
+    positions.forEach((pos) => {
+      _this.dropCol(pos.idxRow, pos.idxCol)
+    })
+
+    // TODO: spawn new components
+  }
+
   destroyComponents(components) {
     components.forEach((component) => {
       const idxRow = component.idxRow
@@ -103,19 +105,21 @@ class Field {
   }
 
   dropCol(aboveIdxRow, idxCol) {
-    for (let idxRow = 0; idxRow < aboveIdxRow; idxRow++) {
+    for (let idxRow = aboveIdxRow - 1; idxRow >= 0; idxRow--) {
       this.dropComponent(idxRow, idxCol)
     }
   }
 
   dropComponent(idxRow, idxCol) {
-    // TODO: account for multidrop
     const component = this.matrix[idxRow][idxCol]
+    let dropAmount = 1
 
     if (component && (idxRow < numRows - 1)) {
-      this.matrix[idxRow + 1][idxCol] = component
+      this.matrix[idxRow + dropAmount][idxCol] = component
       this.matrix[idxRow][idxCol] = undefined
-      component.drop()
+      component.drop(dropAmount)
+    } else {
+      dropAmount++
     }
   }
 }
