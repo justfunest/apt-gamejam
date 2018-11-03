@@ -79,10 +79,20 @@ class Field {
       return false
     }
 
+    const sortedRecipeComponents = recipe.components.sort()
+    const sortedComponents = components.sort((a, b) => {
+      if (a.spec.id < b.spec.id) {
+        return -1
+      } else if (a.spec.id === b.spec.id) {
+        return 0
+      } else {
+        return 1
+      }
+    })
+
     let matches = true
-    components.forEach((component) => {
-      const componentIsInRecipe = lodash.includes(recipe.components, component.spec.id)
-      matches = matches && componentIsInRecipe
+    sortedComponents.forEach((component, idx) => {
+      matches = matches && component.spec.id === sortedRecipeComponents[idx]
     })
 
     return matches
