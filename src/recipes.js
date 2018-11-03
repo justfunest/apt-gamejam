@@ -16,5 +16,11 @@ export default [
     name: 'Smooth Operator',
     components: ['whiskey', 'whiskey-glass', 'red-bull'],
     power: 18
+  },
+  {
+    id: 'whiskey-rocks',
+    name: 'Whiskey on the rocks',
+    components: ['ice', 'whiskey', 'whiskey-glass'],
+    power: 7
   }
 ]
