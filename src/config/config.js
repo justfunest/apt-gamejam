@@ -50,6 +50,11 @@ export const components =  [
         sound: ['pour_1', 'pour_2', 'pour_3']
     },
     {
+        id: 'strawberry',
+        name: 'Strawberry',
+        sound: ['pour_1', 'pour_2', 'pour_3']
+    },
+    {
         id: 'ice',
         name: 'Ice',
         sound: ['ice']
@@ -90,15 +95,13 @@ export const recipes = [
     {
         id: 'champagne',
         name: 'Champagne!',
-        // TODO: garnish with strawberry
-        components: ['champagne', 'champagne-glass'],
+        components: ['champagne', 'champagne-glass', 'strawberry'],
         power: 5
     },
     {
         id: 'champagne-martini',
         name: 'Champagne Martini',
-        // TODO: garnish with strawberry
-        components: ['champagne', 'ice', 'martini-glass', 'vodka'],
+        components: ['champagne', 'ice', 'martini-glass', 'vodka', 'strawberry'],
         power: 7
     },
     {
@@ -163,6 +166,7 @@ export const IMAGE_STATE = {
         {'id' : 'red-bull', 'filename' : 'assets/images/red-bull.png'},
         {'id' : 'olive', 'filename' : 'assets/images/olive.png'},
         {'id' : 'lime', 'filename' : 'assets/images/lime.png'},
+        {'id' : 'strawberry', 'filename' : 'assets/images/strawberry.png'},
         {'id' : 'ice', 'filename' : 'assets/images/ice.png'},
         {'id' : 'outline', 'filename' : 'assets/images/outline.png'},
         {'id' : 'field-bg', 'filename' : 'assets/images/field-bg.png'},
