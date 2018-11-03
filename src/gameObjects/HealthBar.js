@@ -1,7 +1,11 @@
 class HealthBar {
     constructor(scene, x, y, max = 100, current = 100) {
-        this.bar = scene.add.sprite(x, y, 'healthbar').setScale(0.3, 0.2).setZ(1);
-        this.maskbar = scene.add.image(x, y, 'healthbar').setScale(0.3,0.2).setVisible(false);
+        this.scale = {
+            x:0.3,
+            y:0.2
+        }
+        this.bar = scene.add.sprite(x, y, 'healthbar').setScale(this.scale.x, this.scale.y)
+        this.maskbar = scene.add.image(x, y, 'healthbar').setScale(this.scale.x,this.scale.y).setVisible(false);
         this.mask = this.maskbar.createBitmapMask();
         this.startX = this.maskbar.x;
         this.bar.setMask(this.mask);
@@ -19,7 +23,7 @@ class HealthBar {
     update(current) {
         this.current = current;
         this.text.setText(this.getText());
-        this.maskbar.x = this.startX - this.bar.width + (this.current / this.max * this.bar.width);
+        this.maskbar.x = this.startX - this.bar.width*this.scale.x + (this.current / this.max * this.bar.width* this.scale.x);
     }
 
 }

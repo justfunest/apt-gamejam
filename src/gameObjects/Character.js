@@ -13,9 +13,9 @@ class Character extends Phaser.GameObjects.Sprite {
     }
 
     addHealthBar() {
-        let healthXPos = this.state.position.x;
-        let healthYPos = this.state.position.y - this.sprite.height/2 - 50;
-        this.healthBar = new HealthBar(this.scene, healthXPos, healthYPos, this.state.soberness.max, this.state.soberness.current)
+        let x = this.state.position.x;
+        let y = this.state.position.y -this.sprite.height/4 -20;
+        this.healthBar = new HealthBar(this.scene, x, y, this.state.soberness.max, this.state.soberness.current)
     }
 
     animate(id) {
@@ -29,14 +29,15 @@ class Character extends Phaser.GameObjects.Sprite {
         }
 
         let keys = Object.keys(ANIMATIONS);
-        console.log(keys)
-        let rnd = Math.floor(Math.random() * (keys.length-1 - 0) ) + 0;
-        console.log(keys[rnd])
+        let rnd = Math.floor(Math.random() * (keys.length-1))
         this.animate(ANIMATIONS[keys[rnd]].name)
     }
 
     getSober() {
         this.state.soberness.current -= this.state.soberness.decayRate;
+        if (this.state.soberness.current < 0) {
+            this.state.soberness.current = 0;
+        }
     }
 
     checkIsAlive() {
