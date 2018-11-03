@@ -10,11 +10,19 @@ const numCols = 6
 
 class Field {
   constructor(scene, character) {
-    // TODO: field background overlay
     this.scene = scene
     this.character = character
+    this.createBackground()
     this.createMatrix()
     this.matchText = new MatchText(scene)
+  }
+
+  createBackground() {
+    // TODO: hardcoded dimensions and offsets
+    this.background = this.scene.add.sprite(370, 370, 'field-bg')
+    this.background.alpha = 0.6
+    this.background.displayWidth = 650
+    this.background.displayHeight = 650
   }
 
   createMatrix() {
