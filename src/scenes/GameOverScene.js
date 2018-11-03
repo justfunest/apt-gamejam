@@ -10,6 +10,7 @@ class GameOverScene extends Phaser.Scene {
 
   create() {
     // TODO: get win/lose state
+    // TODO: apply background
     this.gameOver = new GameOver(this, true)
 
     this.input.on('gameobjectup', (pointer, gameObj) => {
