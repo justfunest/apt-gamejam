@@ -1,16 +1,26 @@
 import HealthBar from '../gameObjects/HealthBar'
 import {CHARACTER_STATE} from "../config/config";
+import {ANIMATIONS} from "../config/config";
 
 class Character extends Phaser.GameObjects.Sprite {
     constructor(scene, type, state = CHARACTER_STATE) {
         super(scene, type);
+        this.scene = scene;
         this.state = state;
-        this.name = 'character';
-        this.sprite = scene.add.sprite(this.state.position.x, this.state.position.y, 'character');
+        this.sprite = scene.add.sprite(this.state.position.x, this.state.position.y, 'angry', 'k01.png');
+        this.sprite.setScale(0.5, 0.5);
+        this.addHealthBar();
+        this.animate(ANIMATIONS.drunk.name)
+    }
+
+    addHealthBar() {
         let healthXPos = this.state.position.x;
         let healthYPos = this.state.position.y - this.sprite.height/2 - 50;
-        this.healthBar = new HealthBar(scene, healthXPos, healthYPos, this.state.soberness.max, this.state.soberness.current)
+        this.healthBar = new HealthBar(this.scene, healthXPos, healthYPos, this.state.soberness.max, this.state.soberness.current)
+    }
 
+    animate(id) {
+        this.sprite.anims.play(id)
     }
 
     drink(recipie) {
