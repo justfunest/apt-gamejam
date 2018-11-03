@@ -27,7 +27,8 @@ class Character extends Phaser.GameObjects.Sprite {
         if (this.state.soberness.current > this.state.soberness.max) {
             this.state.soberness.current = this.state.soberness.max;
         }
-        this.sound.play('slurp')
+        let sounds = ['slurp', 'burp']
+        this.scene.sound.play(sounds[this.getRndInteger(0, sounds.length)]);
         let keys = Object.keys(ANIMATIONS);
         let rnd = Math.floor(Math.random() * (keys.length-1))
         this.animate(ANIMATIONS[keys[rnd]].name)
@@ -38,6 +39,10 @@ class Character extends Phaser.GameObjects.Sprite {
         if (this.state.soberness.current < 0) {
             this.state.soberness.current = 0;
         }
+    }
+
+    getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min) ) + min;
     }
 
     checkIsAlive() {
