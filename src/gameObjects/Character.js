@@ -27,7 +27,7 @@ class Character extends Phaser.GameObjects.Sprite {
         if (this.state.soberness.current > this.state.soberness.max) {
             this.state.soberness.current = this.state.soberness.max;
         }
-
+        this.sound.play('slurp')
         let keys = Object.keys(ANIMATIONS);
         let rnd = Math.floor(Math.random() * (keys.length-1))
         this.animate(ANIMATIONS[keys[rnd]].name)

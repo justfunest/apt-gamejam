@@ -22,6 +22,7 @@ class CocktailScene extends Phaser.Scene {
   create() {
 
     this.audioManager = new AudioManager(this);
+
     this.audioManager = new AnimationManager(this);
     this.character = new Charater(this, 'sprite');
     this.field = new Field(this, this.character);

@@ -1,7 +1,7 @@
 import * as lodash from 'lodash'
 
-import {default as components} from '../components'
-import {default as recipes} from '../recipes'
+import {components} from '../config/config'
+import {recipes} from '../config/config'
 import {default as Component} from '../sprites/Component'
 import {default as MatchText} from './MatchText'
 
