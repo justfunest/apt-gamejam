@@ -4,6 +4,7 @@ const offsetX = 120
 const offsetY = 120
 const tileWidth = 100
 const tileHeight = 100
+// TODO: margins/padding
 
 // milliseconds
 const dropDuration = 250
@@ -21,6 +22,8 @@ class Component {
     } else {
       this.sprite = scene.add.sprite(offsetX + tileWidth * idxCol, offsetY + tileHeight * idxRow, spec.id)
     }
+    this.sprite.displayWidth = tileWidth
+    this.sprite.displayHeight = tileHeight
     this.sprite.setInteractive()
     this.sprite.on('clicked', this.onClick.bind(this))
 

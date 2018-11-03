@@ -11,6 +11,11 @@ class CocktailScene extends Phaser.Scene {
     this.load.image('beer', 'assets/images/kb-arrow-left.png');
     this.load.image('whiskey', 'assets/images/kb-arrow-down.png');
     this.load.image('soda', 'assets/images/kb-arrow-right.png');
+    this.load.image('champagne-glass', 'assets/images/champagne-glass.png');
+    this.load.image('martini-glass', 'assets/images/martini-glass.png');
+    this.load.image('shot-glass', 'assets/images/shot-glass.png');
+    this.load.image('whiskey-glass', 'assets/images/whiskey-glass.png');
+    
     this.load.image('character', 'assets/images/character.png');
     this.load.image('healthbar', 'assets/images/bar.png');
 
