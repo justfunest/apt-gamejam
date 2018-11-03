@@ -27,6 +27,13 @@ class Field {
   }
 
   update(time, delta) {
+    this.matrix.forEach((row) => {
+      row.forEach((component) => {
+        if (component) {
+          component.update(time, delta)
+        }
+      })
+    })
   }
 
   checkMatch() {
