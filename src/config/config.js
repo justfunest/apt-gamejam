@@ -8,6 +8,10 @@ export const components =  [
         name: 'Whiskey'
     },
     {
+        id: 'champagne',
+        name: 'Champagne'
+    },
+    {
         id: 'champagne-glass',
         name: 'Champagne glass'
     },
@@ -30,7 +34,15 @@ export const components =  [
     {
         id: 'olive',
         name: 'Olive'
-    }
+    },
+    {
+        id: 'lime',
+        name: 'Lime'
+    },
+    {
+        id: 'ice',
+        name: 'Ice'
+    },
 ]
 
 export const recipes = [
@@ -38,7 +50,7 @@ export const recipes = [
         id: 'just-whiskey',
         name: 'Just a whiskey',
         components: ['whiskey', 'whiskey-glass'],
-        power: 8
+        power: 9
     },
     {
         id: 'vodka-martini',
@@ -50,13 +62,39 @@ export const recipes = [
         id: 'smooth-operator',
         name: 'Smooth Operator',
         components: ['whiskey', 'whiskey-glass', 'red-bull'],
-        power: 18
+        power: 10
     },
     {
         id: 'whiskey-rocks',
         name: 'Whiskey on the rocks',
         components: ['ice', 'whiskey', 'whiskey-glass'],
+        power: 8
+    },
+    {
+        id: 'vodka-red-bull',
+        name: 'No glass required',
+        components: ['red-bull', 'vodka'],
+        power: 10
+    },
+    {
+        id: 'champagne',
+        name: 'Champagne!',
+        // TODO: garnish with strawberry
+        components: ['champagne', 'champagne-glass'],
+        power: 5
+    },
+    {
+        id: 'champagne-martini',
+        name: 'Champagne Martini',
+        // TODO: garnish with strawberry
+        components: ['champagne', 'ice', 'martini-glass', 'vodka'],
         power: 7
+    },
+    {
+        id: 'vodka-lime',
+        name: 'Vodka with lime',
+        components: ['lime', 'vodka', 'shot-glass'],
+        power: 18
     }
 ]
 
@@ -106,12 +144,14 @@ export const IMAGE_STATE = {
     resources : [
         {'id' : 'vodka', 'filename' : 'assets/images/vodka.png'},
         {'id' : 'whiskey', 'filename' : 'assets/images/whiskey.png'},
+        {'id' : 'champagne', 'filename' : 'assets/images/champagne.png'},
         {'id' : 'champagne-glass', 'filename' : 'assets/images/champagne-glass.png'},
         {'id' : 'martini-glass', 'filename' : 'assets/images/martini-glass.png'},
         {'id' : 'shot-glass', 'filename' : 'assets/images/shot-glass.png'},
         {'id' : 'whiskey-glass', 'filename' : 'assets/images/whiskey-glass.png'},
         {'id' : 'red-bull', 'filename' : 'assets/images/red-bull.png'},
         {'id' : 'olive', 'filename' : 'assets/images/olive.png'},
+        {'id' : 'lime', 'filename' : 'assets/images/lime.png'},
         {'id' : 'ice', 'filename' : 'assets/images/ice.png'},
         {'id' : 'outline', 'filename' : 'assets/images/outline.png'},
         {'id' : 'bg', 'filename' : 'assets/images/bg.jpg'},

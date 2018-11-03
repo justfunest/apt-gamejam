@@ -1,5 +1,6 @@
 // TODO: the id is the same as the sprite identifier for a given component.
 
+// TODO: remove
 export default [
   {
     id: 'vodka',

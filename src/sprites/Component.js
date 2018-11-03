@@ -16,7 +16,6 @@ class Component {
     this.active = false
     this.idxRow = idxRow
     this.idxCol = idxCol
-
     
     if (isDropping) {
       this.sprite = scene.add.sprite(offsetX + tileWidth * idxCol, offsetY - tileHeight, spec.id)
@@ -31,7 +30,7 @@ class Component {
     this.outline = scene.add.sprite(offsetX + tileWidth * idxCol, offsetY + tileHeight * idxRow, 'outline')
     this.outline.displayWidth = tileWidth
     this.outline.displayHeight = tileHeight
-    this.outline.alpha = 0.4
+    this.outline.alpha = 0.6
     this.outline.visible = false
 
     this.isDropping = isDropping
