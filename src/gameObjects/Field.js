@@ -19,7 +19,7 @@ class Field {
       const row = []
       for (let idxCol = 0; idxCol < numCols; idxCol++) {
         const spec = lodash.sample(components)
-        const compSprite = new Component(this.scene, this, spec, idxRow, idxCol)
+        const compSprite = new Component(this.scene, this, spec, idxRow, idxCol, false)
         row.push(compSprite)
       }
       this.matrix.push(row)
@@ -135,7 +135,7 @@ class Field {
       let idxRow = 0
       while (idxRow < numRows && !this.matrix[idxRow][idxCol]) {
         const spec = lodash.sample(components)
-        const component = new Component(this.scene, this, spec, idxRow, idxCol)
+        const component = new Component(this.scene, this, spec, idxRow, idxCol, true)
         this.matrix[idxRow][idxCol] = component
         idxRow++
       }

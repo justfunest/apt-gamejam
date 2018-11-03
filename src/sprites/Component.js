@@ -6,22 +6,36 @@ const tileWidth = 100
 const tileHeight = 100
 
 // milliseconds
-const dropDuration = 300
+const dropDuration = 250
 
 class Component {
-  constructor(scene, field, spec, idxRow, idxCol) {
+  constructor(scene, field, spec, idxRow, idxCol, isDropping = false) {
     this.field = field
     this.spec = spec
     this.active = false
     this.idxRow = idxRow
     this.idxCol = idxCol
 
-    this.sprite = scene.add.sprite(offsetX + tileWidth * idxCol, offsetY + tileHeight * idxRow, spec.id)
+    if (isDropping) {
+      this.sprite = scene.add.sprite(offsetX + tileWidth * idxCol, offsetY - tileHeight, spec.id)
+    } else {
+      this.sprite = scene.add.sprite(offsetX + tileWidth * idxCol, offsetY + tileHeight * idxRow, spec.id)
+    }
     this.sprite.setInteractive()
     this.sprite.on('clicked', this.onClick.bind(this))
 
-    this.isDropping = false
+    this.isDropping = isDropping
     this.dropTimer = new Timer()
+
+    if (isDropping) {
+      this.initDrop()
+    }
+  }
+
+  initDrop() {
+    this.dropTimer.start()
+    this.origY = offsetY - tileHeight
+    this.destY = offsetY + tileHeight * this.idxRow
   }
 
   onClick() {
