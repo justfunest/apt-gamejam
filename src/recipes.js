@@ -22,6 +22,12 @@ export default [
     name: 'Whiskey on the rocks',
     components: ['ice', 'whiskey', 'whiskey-glass'],
     power: 7
+  },
+  {
+    id: 'vodka-red-bull',
+    name: 'No glass required',
+    components: ['red-bull', 'vodka'],
+    power: 10
   }
   // TODO: champagne Martini
 ]

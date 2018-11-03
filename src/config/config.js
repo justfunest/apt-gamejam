@@ -114,6 +114,7 @@ export const IMAGE_STATE = {
         {'id' : 'olive', 'filename' : 'assets/images/olive.png'},
         {'id' : 'ice', 'filename' : 'assets/images/ice.png'},
         {'id' : 'outline', 'filename' : 'assets/images/outline.png'},
+        {'id' : 'bg', 'filename' : 'assets/images/bg.jpg'},
         {'id' : 'character', 'filename' : 'assets/images/character.png'},
         {'id' : 'healthbar', 'filename' : 'assets/images/bar.png'}
     ]

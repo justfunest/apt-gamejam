@@ -6,12 +6,17 @@ class GameOverScene extends Phaser.Scene {
   }
 
   preload() {
+    this.load.image('bg', 'assets/images/bg.jpg')
   }
 
   create() {
     // TODO: get win/lose state
-    // TODO: apply background
     this.gameOver = new GameOver(this, true)
+
+    // TODO: hardcoded image dimensions and offsets
+    this.bg = this.add.sprite(600, 400, 'bg')
+    this.bg.displayWidth = 1200
+    this.bg.displayHeight = 800
 
     this.input.on('gameobjectup', (pointer, gameObj) => {
       gameObj.emit('clicked', gameObj)
