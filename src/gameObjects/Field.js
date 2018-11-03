@@ -41,9 +41,10 @@ class Field {
     const idxMatchedRecipe = this.matchRecipe(selectedComponents)
 
     if (idxMatchedRecipe !== -1) {
-      console.log('Matched recipe', idxMatchedRecipe)
       // TODO: drink up!
-      // TODO: destroy components
+      
+      this.destroyComponents(selectedComponents)
+
       // TODO: spawn new components
     }
   }
@@ -76,6 +77,15 @@ class Field {
     })
 
     return matches
+  }
+
+  destroyComponents(components) {
+    components.forEach((component) => {
+      const idxRow = component.idxRow
+      const idxCol = component.idxCol
+      component.destroy()
+      delete this.matrix[idxRow][idxCol]
+    })
   }
 }
 

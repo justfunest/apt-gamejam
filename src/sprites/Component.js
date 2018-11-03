@@ -8,6 +8,8 @@ class Component {
     this.field = field
     this.spec = spec
     this.active = false
+    this.idxRow = idxRow
+    this.idxCol = idxCol
 
     this.sprite = scene.add.sprite(offsetX + tileWidth * idxCol, offsetY + tileHeight* idxRow, spec.id)
     this.sprite.setInteractive()
@@ -23,6 +25,10 @@ class Component {
       this.sprite.tint = 0.7 * 0xffffff
     }
     this.field.checkMatch()
+  }
+
+  destroy() {
+    this.sprite.destroy()
   }
 }
 
