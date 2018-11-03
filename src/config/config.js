@@ -9,19 +9,19 @@ export const AUDIO_STATE = {
 
 export const IMAGE_STATE = {
     resources : [
-        {
-            'id' : 'vodka',
-            'filename' : 'assets/audio/sfx.ogg'
-        }
+        {'id' : 'vodka', 'filename' : 'assets/images/kb-arrow-up.png'},
+        {'id' : 'whiskey', 'filename' : 'assets/images/kb-arrow-down.png'},
+        {'id' : 'beer', 'filename' : 'assets/images/kb-arrow-left.png'},
+        {'id' : 'soda', 'filename' : 'assets/images/kb-arrow-right.png'},
+        {'id' : 'champagne-glass', 'filename' : 'assets/images/champagne-glass.png'},
+        {'id' : 'martini-glass', 'filename' : 'assets/images/martini-glass.png'},
+        {'id' : 'shot-glass', 'filename' : 'assets/images/shot-glass.png'},
+        {'id' : 'whiskey-glass', 'filename' : 'assets/images/whiskey-glass.png'},
+        {'id' : 'character', 'filename' : 'assets/images/character.png'},
+        {'id' : 'healthbar', 'filename' : 'assets/images/bar.png'}
+
     ]
 };
-
-this.load.image('vodka', 'assets/images/kb-arrow-up.png');
-this.load.image('beer', 'assets/images/kb-arrow-left.png');
-this.load.image('whiskey', 'assets/images/kb-arrow-down.png');
-this.load.image('soda', 'assets/images/kb-arrow-right.png');
-this.load.image('character', 'assets/images/character.png');
-this.load.image('healthbar', 'assets/images/bar.png');
 
 export const CHARACTER_STATE = {
     soberness: {

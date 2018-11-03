@@ -3,14 +3,18 @@ import * as lodash from 'lodash'
 import {default as components} from '../components'
 import {default as recipes} from '../recipes'
 import {default as Component} from '../sprites/Component'
+import {default as MatchText} from './MatchText'
 
 const numRows = 6
 const numCols = 6
 
 class Field {
-  constructor(scene) {
+  constructor(scene, character) {
     this.scene = scene
+    this.character = character
+    // TODO: text z layer (after a few drinks)
     this.createMatrix()
+    this.matchText = new MatchText(scene)
   }
 
   createMatrix() {
@@ -27,6 +31,7 @@ class Field {
   }
 
   update(time, delta) {
+    this.matchText.update(time, delta)
     this.matrix.forEach((row) => {
       row.forEach((component) => {
         if (component) {
@@ -85,8 +90,11 @@ class Field {
   }
 
   handleMatch(selectedComponents, idxMatchedRecipe) {
-    // TODO: drink up!
-      
+    const recipe = recipes[idxMatchedRecipe]
+    this.character.drink(recipe)
+    
+    this.matchText.show(recipe.name)
+
     const positions = selectedComponents.map((component) => {
       return {
         idxRow: component.idxRow,

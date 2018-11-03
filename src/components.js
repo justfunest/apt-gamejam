@@ -16,5 +16,21 @@ export default [
   {
     id: 'soda',
     name: 'Soda'
+  },
+  {
+    id: 'champagne-glass',
+    name: 'Champagne glass'
+  },
+  {
+    id: 'martini-glass',
+    name: 'Martini glass'
+  },
+  {
+    id: 'shot-glass',
+    name: 'Shot glass'
+  },
+  {
+    id: 'whiskey-glass',
+    name: 'Whiskey glass'
   }
 ]
