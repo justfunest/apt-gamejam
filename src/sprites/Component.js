@@ -1,10 +1,15 @@
+const offsetX = 120
+const offsetY = 120
+const tileWidth = 100
+const tileHeight = 100
+
 class Component {
-  constructor(scene, spec, idxRow, idxCol) {
+  constructor(scene, field, spec, idxRow, idxCol) {
+    this.field = field
     this.spec = spec
     this.active = false
 
-    // TODO: tile width/height
-    this.sprite = scene.add.sprite(50 * idxCol, 50 * idxRow, spec.id)
+    this.sprite = scene.add.sprite(offsetX + tileWidth * idxCol, offsetY + tileHeight* idxRow, spec.id)
     this.sprite.setInteractive()
     this.sprite.on('clicked', this.onClick.bind(this))
   }
@@ -17,6 +22,7 @@ class Component {
       this.active = true
       this.sprite.tint = 0.7 * 0xffffff
     }
+    this.field.checkMatch()
   }
 }
 
