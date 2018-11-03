@@ -11,8 +11,6 @@ export const IMAGE_STATE = {
     resources : [
         {'id' : 'vodka', 'filename' : 'assets/images/vodka.png'},
         {'id' : 'whiskey', 'filename' : 'assets/images/whiskey.png'},
-        {'id' : 'beer', 'filename' : 'assets/images/kb-arrow-left.png'},
-        {'id' : 'soda', 'filename' : 'assets/images/kb-arrow-right.png'},
         {'id' : 'champagne-glass', 'filename' : 'assets/images/champagne-glass.png'},
         {'id' : 'martini-glass', 'filename' : 'assets/images/martini-glass.png'},
         {'id' : 'shot-glass', 'filename' : 'assets/images/shot-glass.png'},
