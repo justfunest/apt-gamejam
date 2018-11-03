@@ -23,4 +23,5 @@ export default [
     components: ['ice', 'whiskey', 'whiskey-glass'],
     power: 7
   }
+  // TODO: champagne Martini
 ]

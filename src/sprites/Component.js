@@ -17,6 +17,7 @@ class Component {
     this.idxRow = idxRow
     this.idxCol = idxCol
 
+    
     if (isDropping) {
       this.sprite = scene.add.sprite(offsetX + tileWidth * idxCol, offsetY - tileHeight, spec.id)
     } else {
@@ -26,6 +27,12 @@ class Component {
     this.sprite.displayHeight = tileHeight
     this.sprite.setInteractive()
     this.sprite.on('clicked', this.onClick.bind(this))
+
+    this.outline = scene.add.sprite(offsetX + tileWidth * idxCol, offsetY + tileHeight * idxRow, 'outline')
+    this.outline.displayWidth = tileWidth
+    this.outline.displayHeight = tileHeight
+    this.outline.alpha = 0.4
+    this.outline.visible = false
 
     this.isDropping = isDropping
     this.dropTimer = new Timer()
@@ -42,13 +49,13 @@ class Component {
   }
 
   onClick() {
-    // TODO: better highlighting
     if (this.active) {
       this.active = false
-      this.sprite.tint = 0xffffff
+      this.outline.visible = false
     } else {
       this.active = true
-      this.sprite.tint = 0.7 * 0xffffff
+      this.outline.y = this.sprite.y
+      this.outline.visible = true
     }
     this.field.checkMatch()
   }
@@ -79,6 +86,7 @@ class Component {
 
   destroy() {
     this.sprite.destroy()
+    this.outline.destroy()
   }
 }
 
