@@ -12,7 +12,6 @@ class Field {
   constructor(scene, character) {
     this.scene = scene
     this.character = character
-    // TODO: text z layer (after a few drinks)
     this.createMatrix()
     this.matchText = new MatchText(scene)
   }

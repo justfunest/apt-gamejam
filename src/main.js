@@ -1,6 +1,7 @@
 import 'phaser';
 import TestScene from './scenes/TestScene'
 import CocktailScene from './scenes/CocktailScene';
+import GameOverScene from './scenes/GameOverScene'
 
 const config = {
     // For more settings see <https://github.com/photonstorm/phaser/blob/master/src/boot/Config.js>
@@ -20,6 +21,7 @@ const config = {
     scene: [
         //TestScene
         CocktailScene
+        // GameOverScene
     ]
 };
 
