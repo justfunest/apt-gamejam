@@ -135,6 +135,7 @@ class Field {
   }
 
   dropComponent(idxRow, idxCol) {
+    // BUG: sometimes components don't drop properly
     const component = this.matrix[idxRow][idxCol]
     let dropAmount = 1
 

@@ -15,8 +15,8 @@ class GameOver {
   }
 
   onClick() {
-    // TODO
-    console.log('TODO: clicked')
+    this.scene.scene.stop('GameOverScene')
+    this.scene.scene.launch('CocktailScene')
   }
 }
 

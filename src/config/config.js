@@ -10,7 +10,7 @@ export const AUDIO_STATE = {
 export const IMAGE_STATE = {
     resources : [
         {'id' : 'vodka', 'filename' : 'assets/images/vodka.png'},
-        {'id' : 'whiskey', 'filename' : 'assets/images/kb-arrow-down.png'},
+        {'id' : 'whiskey', 'filename' : 'assets/images/whiskey.png'},
         {'id' : 'beer', 'filename' : 'assets/images/kb-arrow-left.png'},
         {'id' : 'soda', 'filename' : 'assets/images/kb-arrow-right.png'},
         {'id' : 'champagne-glass', 'filename' : 'assets/images/champagne-glass.png'},
