@@ -9,6 +9,6 @@ export default [
     id: 'vodka-beer',
     name: 'Vodka and Beer',
     components: ['vodka', 'beer'],
-    power: 3
+    power: 8
   }
 ]

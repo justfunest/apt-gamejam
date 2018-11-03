@@ -9,8 +9,9 @@ const numRows = 6
 const numCols = 6
 
 class Field {
-  constructor(scene) {
+  constructor(scene, character) {
     this.scene = scene
+    this.character = character
     // TODO: text z layer (after a few drinks)
     this.createMatrix()
     this.matchText = new MatchText(scene)
@@ -89,9 +90,10 @@ class Field {
   }
 
   handleMatch(selectedComponents, idxMatchedRecipe) {
-    // TODO: drink up!
+    const recipe = recipes[idxMatchedRecipe]
+    this.character.drink(recipe)
     
-    this.matchText.show(recipes[idxMatchedRecipe].name)
+    this.matchText.show(recipe.name)
 
     const positions = selectedComponents.map((component) => {
       return {

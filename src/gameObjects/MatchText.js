@@ -17,6 +17,7 @@ class MatchText {
   show(text) {
     // TODO: animate
     this.text.z = -1000
+    // TODO: don't need to uppercase with a different font
     this.text.text = text.toUpperCase()
     this.isDisplaying = true
     this.displayTimer.start()

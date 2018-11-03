@@ -19,8 +19,8 @@ class CocktailScene extends Phaser.Scene {
   }
 
   create() {
-    this.field = new Field(this);
     this.character = new Charater(this, 'sprite');
+    this.field = new Field(this, this.character);
     this.input.on('gameobjectup', (pointer, gameObj) => {
       gameObj.emit('clicked', gameObj)
     }, this)
