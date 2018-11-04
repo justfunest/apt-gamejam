@@ -1,10 +1,11 @@
 class GameOver {
-  constructor(scene, won) {
+  constructor(scene) {
     this.scene = scene
-    this.initText(won)
+    this.initText(scene.state.won)
   }
 
   initText(won) {
+    console.log(won)
     this.won = won
     let text = won ? 'Congratulations - you got shitfaced!' : 'You sobered up - enjoy reality, idiot!' 
     text += '\nClick here to play again'

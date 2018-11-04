@@ -66,7 +66,7 @@ export const recipes = [
         id: 'just-whiskey',
         name: 'Just a whiskey',
         components: ['whiskey', 'whiskey-glass'],
-        power: 9
+        power: 10
     },
     {
         id: 'vodka-martini',
@@ -213,7 +213,7 @@ export const CHARACTER_STATE = {
     soberness: {
         max : 500,
         current: 250,
-        decayRate: 0.02
+        decayRate: 0.1
     },
     position: {
         x: 900,
