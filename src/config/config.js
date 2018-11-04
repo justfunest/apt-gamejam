@@ -172,7 +172,9 @@ export const IMAGE_STATE = {
         {'id' : 'field-bg', 'filename' : 'assets/images/field-bg.png'},
         {'id' : 'bg', 'filename' : 'assets/images/bg.jpg'},
         {'id' : 'character', 'filename' : 'assets/images/character.png'},
-        {'id' : 'healthbar', 'filename' : 'assets/images/bar.png'}
+        {'id' : 'healthbar_empty', 'filename' : 'assets/images/healthbar/StomachBase.png'},
+        {'id' : 'healthbar_full', 'filename' : 'assets/images/healthbar/StomachFluid.png'},
+        {'id' : 'healthbar_mask', 'filename' : 'assets/images/healthbar/StomachMask.png'}
     ]
 };
 
@@ -211,7 +213,7 @@ export const CHARACTER_STATE = {
     soberness: {
         max : 500,
         current: 500,
-        decayRate: 0.05
+        decayRate: 0.1
     },
     position: {
         x: 900,

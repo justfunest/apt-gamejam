@@ -6,8 +6,9 @@ import {ANIMATIONS} from "../config/config";
 class Character extends Phaser.GameObjects.Sprite {
     constructor(scene, type, state = CHARACTER_STATE) {
         super(scene, type);
+        console.log(state)
         this.scene = scene;
-        this.state = state;
+        this.state = lodash.cloneDeep(state);
         this.sprite = scene.add.sprite(this.state.position.x, this.state.position.y, 'drunk', 'k01.png');
         this.sprite.setScale(0.65, 0.65);
         this.addHealthBar();
@@ -62,6 +63,9 @@ class Character extends Phaser.GameObjects.Sprite {
         if (this.state.alive) {
             this.getSober();
             this.checkIsAlive();
+        } else {
+            this.scene.scene.stop('CocktailScene');
+            this.scene.scene.launch('GameOverScene')
         }
         this.updateAnimations();
         this.healthBar.update(this.state.soberness.current);

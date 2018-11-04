@@ -22,8 +22,7 @@ class CocktailScene extends Phaser.Scene {
     // TODO: How-to-play scene? (Possibly communicate this info in Intro scene)
     // TODO: speed up sobering up
     this.audioManager = new AudioManager(this);
-
-    this.audioManager = new AnimationManager(this);
+    this.animationManager = new AnimationManager(this);
 
     // TODO: hardcoded image dimensions and offsets
     this.bg = this.add.sprite(600, 400, 'bg')

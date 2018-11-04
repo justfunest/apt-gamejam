@@ -17,7 +17,7 @@ class GameOver {
 
   onClick() {
     this.scene.scene.stop('GameOverScene')
-    this.scene.scene.launch('CocktailScene')
+    this.scene.scene.start('CocktailScene')
   }
 }
 

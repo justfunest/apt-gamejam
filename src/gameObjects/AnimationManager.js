@@ -7,12 +7,15 @@ class AnimationManager {
         for (let animationId in ANIMATIONS) {
             if (ANIMATIONS.hasOwnProperty(animationId)) {
                 let animation = ANIMATIONS[animationId];
-                this.scene.anims.create({
-                    key: animationId,
-                    frames: this.scene.anims.generateFrameNames(animationId, animation.frames),
-                    frameRate: animation.frameRate,
-                    repeat: animation.repeat
-                });
+                if (!this.scene.anims.anims.entries.hasOwnProperty(animationId)) {
+                    console.log(this.scene.anims)
+                    this.scene.anims.create({
+                        key: animationId,
+                        frames: this.scene.anims.generateFrameNames(animationId, animation.frames),
+                        frameRate: animation.frameRate,
+                        repeat: animation.repeat
+                    });
+                }
             }
         }
     }

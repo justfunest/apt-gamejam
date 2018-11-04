@@ -19,7 +19,7 @@ const config = {
     //     }
     // },
     scene: [
-        IntroScene,
+        //IntroScene,
         CocktailScene,
         GameOverScene,
     ]
