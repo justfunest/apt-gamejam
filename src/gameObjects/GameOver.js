@@ -10,6 +10,7 @@ class GameOver {
     text += '\nClick here to play again'
     // TODO: placement
     this.text = this.scene.add.text(360, 360, text)
+    this.text.tint = 0x3040b0
     this.text.setInteractive()
     this.text.on('clicked', this.onClick.bind(this))
   }
