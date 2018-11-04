@@ -14,12 +14,12 @@ class CocktailScene extends Phaser.Scene {
     AudioManager.loadResources(this);
     AnimationManager.loadResources(this);
 
-    // TODO: Possibly a different font?
-    // this.load.bitmapFont('calibri', 'assets/fonts/calibri_0.png', 'assets/fonts/calibri.fnt');
     this.load.bitmapFont('system', 'assets/fonts/system-default-font.png', 'assets/fonts/system-default-font.fnt');
   }
 
   create() {
+    // TODO: Intro menu scene
+    // TODO: How-to-play scene? (Possibly communicate this info in Intro scene)
     // TODO: speed up sobering up
     this.audioManager = new AudioManager(this);
 
@@ -44,14 +44,6 @@ class CocktailScene extends Phaser.Scene {
   update(time, delta) {
     this.field.update(time, delta);
     this.character.update(time, delta);
-  }
-
-  startGame() {
-    // TODO
-  }
-
-  restartScene() {
-    // TODO
   }
 }
 
