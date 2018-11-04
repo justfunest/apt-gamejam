@@ -9,7 +9,10 @@ class IntroScene extends Phaser.Scene {
     this.load.image('title-bg', 'assets/images/title-bg.png')
 
     this.load.image('btn-instructions', 'assets/images/btn-instructions.png')
+    this.load.image('btn-hi-instructions', 'assets/images/btn-hi-instructions.png')
     this.load.image('btn-play', 'assets/images/btn-play.png');
+    this.load.image('btn-hi-play', 'assets/images/btn-hi-play.png');
+
     this.load.audio('essa', 'assets/music/essa.ogg');
   }
 
@@ -25,6 +28,14 @@ class IntroScene extends Phaser.Scene {
       gameObj.emit('clicked', gameObj)
     }, this)
 
+    this.input.on('gameobjectover', (pointer, gameObj) => {
+      gameObj.emit('over', gameObj)
+    }, this)
+
+    this.input.on('gameobjectout', (pointer, gameObj) => {
+      gameObj.emit('out', gameObj)
+    }, this)
+
     // TODO: instructions button
 
     // TODO: button hover, down, out
@@ -34,6 +45,12 @@ class IntroScene extends Phaser.Scene {
     this.playBtn.setInteractive()
     this.playBtn.on('clicked', () => {
       this.goToScene('CocktailScene')
+    })
+    this.playBtn.on('over', () => {
+      this.playBtn.setTexture('btn-hi-play')
+    })
+    this.playBtn.on('out', () => {
+      this.playBtn.setTexture('btn-play')
     })
 
     this.bgMusic = this.sound.add('essa');
