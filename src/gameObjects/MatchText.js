@@ -5,7 +5,6 @@ import {lerp} from '../lerp'
 
 const displayDuration = 1500
 const alphaMidPoint = 1200
-// TODO: remove
 
 const origScale = 1
 const destScale = 2
@@ -16,24 +15,26 @@ const destAlpha = 1
 class MatchText {
   constructor(scene) {
     this.scene = scene
-    this.text = this.scene.add.bitmapText(360, 360, 'system', '', 32)
-    this.text.originX = 0.5
-    this.text.depth = 10000
-    this.text.tint = 0x3040b0
 
     this.isDisplaying = false
     this.displayTimer = new Timer(displayDuration)
   }
 
   show(text) {
-    this.text.text = text
+    if (this.text) {
+      this.text.destroy()
+    }
+    this.text = this.scene.add.bitmapText(360, 360, 'system', '', 32)
     this.text.originX = 0.5
+    this.text.depth = 10000
+    this.text.tint = 0x3040b0
+
+    this.text.text = text
     this.isDisplaying = true
     this.text.scaleX = origScale
     this.text.scaleY = origScale
     this.origAngle = lodash.random(-20, 0)
     this.destAngle = lodash.random(1, 20)
-    // TODO: anchor (angle pivot) is off
     this.text.angle = this.origAngle
     this.text.alpha = origAlpha
     this.text.visible = true
