@@ -1,3 +1,5 @@
+import * as lodash from "lodash";
+
 class IntroScene extends Phaser.Scene {
   constructor(test) {
     super({key: 'IntroScene'})
@@ -7,7 +9,8 @@ class IntroScene extends Phaser.Scene {
     this.load.image('title-bg', 'assets/images/title-bg.png')
 
     this.load.image('btn-instructions', 'assets/images/btn-instructions.png')
-    this.load.image('btn-play', 'assets/images/btn-play.png')
+    this.load.image('btn-play', 'assets/images/btn-play.png');
+    this.load.audio('essa', 'assets/music/essa.ogg');
   }
 
   create() {
@@ -29,12 +32,21 @@ class IntroScene extends Phaser.Scene {
     this.playBtn.scaleX = 0.5
     this.playBtn.scaleY = 0.5
     this.playBtn.setInteractive()
-    const _this = this
     this.playBtn.on('clicked', () => {
-      _this.scene.stop('IntroScene')
-      _this.scene.launch('CocktailScene')
+      this.goToScene('CocktailScene')
     })
+
+    this.bgMusic = this.sound.add('essa');
+    this.bgMusic.loop = true;
+    this.bgMusic.volume = 0.2
+    this.bgMusic.play()
   }
+
+    goToScene(name, data) {
+        this.scene.stop('IntroScene');
+        this.scene.launch(name, data);
+        this.bgMusic.stop();
+    }
 }
 
 export default IntroScene
