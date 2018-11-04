@@ -4,13 +4,14 @@ class TutorialScene extends Phaser.Scene {
   }
 
   preload() {
-    // TODO: tutorial bg
-    this.load.image('bg', 'assets/images/bg.jpg')
+    this.load.image('instructions-bg', 'assets/images/instructions.png')
+    this.load.image('btn-back', 'assets/images/btn-back.png');
+    this.load.image('btn-hi-back', 'assets/images/btn-hi-back.png');
   }
 
   create() {
     // TODO: hardcoded image dimensions and offsets
-    this.bg = this.add.sprite(600, 400, 'bg')
+    this.bg = this.add.sprite(600, 400, 'instructions-bg')
     this.bg.displayWidth = 1200
     this.bg.displayHeight = 800
     
@@ -18,16 +19,34 @@ class TutorialScene extends Phaser.Scene {
       gameObj.emit('clicked', gameObj)
     }, this)
 
-    // TODO: button image
-    this.text = this.add.text(600, 400, 'Back')
-    this.text.tint = 0x3040b0
-    this.text.setInteractive()
-    const _this = this
-    this.text.on('clicked', () => {
-      _this.scene.stop('TutorialScene')
-      _this.scene.launch('IntroScene')
+    this.input.on('gameobjectover', (pointer, gameObj) => {
+      gameObj.emit('over', gameObj)
+    }, this)
+
+    this.input.on('gameobjectout', (pointer, gameObj) => {
+      gameObj.emit('out', gameObj)
+    }, this)
+
+    this.playBtn = this.add.sprite(700, 650, 'btn-back')
+    this.playBtn.scaleX = 0.5
+    this.playBtn.scaleY = 0.5
+    this.playBtn.setInteractive()
+    this.playBtn.on('clicked', () => {
+      this.goToScene('IntroScene')
+    })
+    this.playBtn.on('over', () => {
+      this.playBtn.setTexture('btn-hi-back')
+    })
+    this.playBtn.on('out', () => {
+      this.playBtn.setTexture('btn-back')
     })
   }
+
+  goToScene(name, data) {
+    this.scene.stop('TutorialScene');
+    this.scene.launch(name, data);
+    this.bgMusic.stop();
+}
 }
 
 export default TutorialScene
