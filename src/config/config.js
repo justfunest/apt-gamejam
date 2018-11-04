@@ -151,6 +151,34 @@ export const AUDIO_STATE = {
             'id' : 'slurp_2',
             'filename' : 'assets/music/human_slurp_drink_from_cup_with_gulps_001.mp3'
         },
+        {
+            'id' : 'aalien',
+            'filename' : 'assets/music/aalien.ogg'
+        },
+        {
+            'id' : 'ear-ape',
+            'filename' : 'assets/music/ear-ape.ogg'
+        },
+        {
+            'id' : 'essa',
+            'filename' : 'assets/music/essa.ogg'
+        },
+        {
+            'id' : 'lamp',
+            'filename' : 'assets/music/lamp.ogg'
+        },
+        {
+            'id' : 'lose',
+            'filename' : 'assets/music/lose.ogg'
+        },
+        {
+            'id' : 'variant',
+            'filename' : 'assets/music/variant.ogg'
+        },
+        {
+            'id' : 'win',
+            'filename' : 'assets/music/win.ogg'
+        },
     ]
 };
 

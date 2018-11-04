@@ -25,6 +25,11 @@ class CocktailScene extends Phaser.Scene {
     this.audioManager = new AudioManager(this);
     this.animationManager = new AnimationManager(this);
 
+    this.bgMusic = this.sound.add('essa')
+    this.bgMusic.loop = true
+    this.bgMusic.volume = 0.4
+    this.bgMusic.play()
+
     // TODO: hardcoded image dimensions and offsets
     this.bg = this.add.sprite(600, 400, 'bg')
     this.bg.displayWidth = 1200

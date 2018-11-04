@@ -13,8 +13,8 @@ class Field {
     this.scene = scene
     this.character = character
     this.createBackground()
-    this.createMatrix()
     this.matchText = new MatchText(scene)
+    this.createMatrix()
   }
 
   createBackground() {

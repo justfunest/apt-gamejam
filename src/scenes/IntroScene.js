@@ -9,6 +9,8 @@ class IntroScene extends Phaser.Scene {
   }
 
   create() {
+    // TODO: music
+
     // TODO: hardcoded image dimensions and offsets
     this.bg = this.add.sprite(600, 400, 'bg')
     this.bg.displayWidth = 1200
