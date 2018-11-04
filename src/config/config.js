@@ -168,6 +168,10 @@ export const AUDIO_STATE = {
             'filename' : 'assets/music/lamp.ogg'
         },
         {
+            'id' : 'mix',
+            'filename' : 'assets/music/miiiX.ogg'
+        },
+        {
             'id' : 'lose',
             'filename' : 'assets/music/lose.ogg'
         },
@@ -178,6 +182,66 @@ export const AUDIO_STATE = {
         {
             'id' : 'win',
             'filename' : 'assets/music/win.ogg'
+        },
+        {
+            'id' : 'voices_0',
+            'filename' : 'assets/music/Laused/0.mp3'
+        },
+        {
+            'id' : 'voices_1',
+            'filename' : 'assets/music/Laused/1.mp3'
+        },
+        {
+            'id' : 'voices_2',
+            'filename' : 'assets/music/Laused/2.mp3'
+        },
+        {
+            'id' : 'voices_3',
+            'filename' : 'assets/music/Laused/3.mp3'
+        },
+        {
+            'id' : 'voices_4',
+            'filename' : 'assets/music/Laused/4.mp3'
+        },
+        {
+            'id' : 'voices_5',
+            'filename' : 'assets/music/Laused/5.mp3'
+        },
+        {
+            'id' : 'voices_6',
+            'filename' : 'assets/music/Laused/6.mp3'
+        },
+        {
+            'id' : 'voices_7',
+            'filename' : 'assets/music/Laused/7.mp3'
+        },
+        {
+            'id' : 'voices_8',
+            'filename' : 'assets/music/Laused/8.mp3'
+        },
+        {
+            'id' : 'voices_9',
+            'filename' : 'assets/music/Laused/9.mp3'
+        },
+        {
+            'id' : 'voices_10',
+            'filename' : 'assets/music/Laused/10.mp3'
+        },
+        {
+            'id' : 'voices_11',
+            'filename' : 'assets/music/Laused/11.mp3'
+        },
+        {
+            'id' : 'voices_12',
+            'filename' : 'assets/music/Laused/12.mp3'
+        },
+        {
+            'id' : 'voices_13',
+            'filename' : 'assets/music/Laused/0.mp3'
+        },
+        {
+            'id' : 'voices_14',
+            'filename' : 'assets/music/Laused/14.mp3'
         },
     ]
 };
@@ -253,7 +317,8 @@ export const CHARACTER_STATE = {
     },
     alive : true,
     sounds: {
-        drink: ['slurp_1','slurp_2','burp']
+        drink: ['slurp_1','slurp_2','burp'],
+        voices: ['voices_0','voices_1','voices_2','voices_3','voices_4','voices_5','voices_6','voices_7','voices_8','voices_9','voices_10','voices_11','voices_12','voices_13']
     },
     animations: {
         drink: ['happy', 'angry', 'drinks']

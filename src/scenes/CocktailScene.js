@@ -50,10 +50,10 @@ class CocktailScene extends Phaser.Scene {
   }
 
   makeMusic() {
-      let musicList = ['essa', 'lamp', 'variant', 'aalien','ear-ape'];
+      let musicList = ['essa', 'lamp', 'variant', 'aalien','ear-ape', 'mix'];
       this.bgMusic = this.sound.add(lodash.sample(musicList));
       this.bgMusic.loop = false
-      this.bgMusic.volume = 0.2
+      this.bgMusic.volume = 0.1;
       this.bgMusic.play()
 
       this.bgMusic.on('ended', (sound) => {

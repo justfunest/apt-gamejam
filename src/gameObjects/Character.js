@@ -34,7 +34,7 @@ class Character extends Phaser.GameObjects.Sprite {
             this.state.soberness.current = this.state.soberness.max;
         }
 
-        let playSound = lodash.sample(this.state.sounds.drink);
+        let playSound = lodash.sample(lodash.merge(this.state.sounds.drink, this.state.sounds.voices));
         console.log({sound: playSound})
         this.scene.sound.play(playSound);
 
