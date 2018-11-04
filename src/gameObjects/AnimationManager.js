@@ -8,7 +8,6 @@ class AnimationManager {
             if (ANIMATIONS.hasOwnProperty(animationId)) {
                 let animation = ANIMATIONS[animationId];
                 if (!this.scene.anims.anims.entries.hasOwnProperty(animationId)) {
-                    console.log(this.scene.anims)
                     this.scene.anims.create({
                         key: animationId,
                         frames: this.scene.anims.generateFrameNames(animationId, animation.frames),

@@ -212,12 +212,16 @@ export const ANIMATIONS = {
 export const CHARACTER_STATE = {
     soberness: {
         max : 500,
-        current: 500,
-        decayRate: 0.1
+        current: 250,
+        decayRate: 0.02
     },
     position: {
         x: 900,
-        y: 400
+        y: 430
+    },
+    scale: {
+        x: 0.6,
+        y: 0.6
     },
     alive : true,
     sounds: {

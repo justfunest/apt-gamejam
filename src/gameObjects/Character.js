@@ -6,17 +6,16 @@ import {ANIMATIONS} from "../config/config";
 class Character extends Phaser.GameObjects.Sprite {
     constructor(scene, type, state = CHARACTER_STATE) {
         super(scene, type);
-        console.log(state)
         this.scene = scene;
         this.state = lodash.cloneDeep(state);
         this.sprite = scene.add.sprite(this.state.position.x, this.state.position.y, 'drunk', 'k01.png');
-        this.sprite.setScale(0.65, 0.65);
+        this.sprite.setScale(state.scale.x, state.scale.y);
         this.addHealthBar();
     }
 
     addHealthBar() {
         let x = this.state.position.x;
-        let y = this.state.position.y -this.sprite.displayHeight/2;
+        let y = this.state.position.y -this.sprite.displayHeight/2 -20;
         this.healthBar = new HealthBar(this.scene, x, y, this.state.soberness.max, this.state.soberness.current)
     }
 
