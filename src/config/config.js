@@ -178,21 +178,34 @@ export const IMAGE_STATE = {
 
 export const ANIMATIONS = {
     angry : {
-       name : 'angry',
-       frames : { start: 1, end: 15, zeroPad: 2, suffix: '.png', prefix: 'a' },
-       frameRate: 10
+        name : 'angry',
+        frames : { start: 1, end: 15, zeroPad: 2, suffix: '.png', prefix: 'a' },
+        frameRate: 10,
+        dir:'assets/images/kuri0',
+        json: 'assets/images/kuri0/kuri.json'
     },
     happy : {
         name : 'happy',
         frames : { start: 1, end: 10, zeroPad: 2, suffix: '.png', prefix: 'o' },
-        frameRate: 10
+        frameRate: 10,
+        dir: 'assets/images/happy',
+        json: 'assets/images/happy/onnelik.json'
     },
     drunk : {
         name : 'drunk',
         frames : { start: 1, end: 60, zeroPad: 2, suffix: '.png', prefix: 'k' },
         frameRate: 10,
-        repeat: -1
-    }
+        repeat: -1,
+        dir: 'assets/images/drunk',
+        json: 'assets/images/drunk/koikumine.json'
+    },
+    drinks : {
+        name : 'drinks',
+        frames : { start: 1, end: 60, zeroPad: 2, suffix: '.png', prefix: 'j' },
+        frameRate: 20,
+        dir: 'assets/images/drinks',
+        json: 'assets/images/drinks/joob.json'
+    },
 }
 export const CHARACTER_STATE = {
     soberness: {
@@ -205,6 +218,12 @@ export const CHARACTER_STATE = {
         y: 400
     },
     alive : true,
+    sounds: {
+        drink: ['slurp_1','slurp_2','burp']
+    },
+    animations: {
+        drink: ['happy', 'angry', 'drinks']
+    },
     sprites: {
         init: 'character'
     }

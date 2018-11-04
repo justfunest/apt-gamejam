@@ -18,9 +18,12 @@ class AnimationManager {
     }
 
     static loadResources(scene) {
-        scene.load.multiatlas('angry', 'assets/images/kuri0/kuri.json', 'assets/images/kuri0');
-        scene.load.multiatlas('happy', 'assets/images/happy/onnelik.json', 'assets/images/happy');
-        scene.load.multiatlas('drunk', 'assets/images/drunk/koikumine.json', 'assets/images/drunk');
+        for (let animationId in ANIMATIONS) {
+            if (ANIMATIONS.hasOwnProperty(animationId)) {
+                let animation = ANIMATIONS[animationId];
+                scene.load.multiatlas(animationId, animation.json, animation.dir);
+            }
+        }
     }
 }
 
