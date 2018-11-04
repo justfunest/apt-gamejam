@@ -12,6 +12,7 @@ const dropDuration = 250
 
 class Component {
   constructor(scene, field, spec, idxRow, idxCol, isDropping = false) {
+    // TODO: cursor pointer?
     this.field = field;
     this.scene = scene;
     this.spec = spec
