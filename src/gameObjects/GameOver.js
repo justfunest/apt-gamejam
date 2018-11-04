@@ -2,10 +2,10 @@ class GameOver {
   constructor(scene) {
     this.scene = scene
     this.initText(scene.state.won)
+
   }
 
   initText(won) {
-    console.log(won)
     this.won = won
     let text = won ? 'Congratulations - you got shitfaced!' : 'You sobered up - enjoy reality, idiot!' 
     text += '\nClick here to play again'
@@ -17,8 +17,13 @@ class GameOver {
   }
 
   onClick() {
-    this.scene.scene.stop('GameOverScene')
-    this.scene.scene.start('CocktailScene')
+      this.goToScene('CocktailScene')
+  }
+
+  goToScene(name, data) {
+      this.scene.scene.stop('GameOverScene');
+      this.scene.scene.launch(name, data);
+      this.scene.bgMusic.stop();
   }
 }
 

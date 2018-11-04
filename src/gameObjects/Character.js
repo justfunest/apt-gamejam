@@ -55,14 +55,17 @@ class Character extends Phaser.GameObjects.Sprite {
         }
         this.healthBar.update(this.state.soberness.current);
     }
+    goToScene(name, data) {
+        this.scene.scene.stop('CocktailScene');
+        this.scene.scene.launch(name, data);
+        this.scene.bgMusic.stop();
+    }
 
     update(time, delta) {
         if (!this.state.alive) {
-            this.scene.scene.stop('CocktailScene');
-            this.scene.scene.launch('GameOverScene', {won: false})
+            this.goToScene('GameOverScene', {won: false})
         } else if (this.state.soberness.current >= this.state.soberness.max) {
-            this.scene.scene.stop('CocktailScene');
-            this.scene.scene.launch('GameOverScene', {result: true})
+            this.goToScene('GameOverScene', {won: true})
         } else {
             this.getSober();
             this.updateAnimations();

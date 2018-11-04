@@ -1,3 +1,4 @@
+import * as lodash from 'lodash'
 import Field from '../gameObjects/Field'
 import Charater from '../gameObjects/Character'
 import AudioManager from '../gameObjects/AudioManager'
@@ -25,11 +26,6 @@ class CocktailScene extends Phaser.Scene {
     this.audioManager = new AudioManager(this);
     this.animationManager = new AnimationManager(this);
 
-    this.bgMusic = this.sound.add('essa')
-    this.bgMusic.loop = true
-    this.bgMusic.volume = 0.4
-    this.bgMusic.play()
-
     // TODO: hardcoded image dimensions and offsets
     this.bg = this.add.sprite(600, 400, 'bg')
     this.bg.displayWidth = 1200
@@ -42,6 +38,8 @@ class CocktailScene extends Phaser.Scene {
       gameObj.emit('clicked', gameObj)
     }, this)
 
+    this.makeMusic();
+
     // TODO: lose condition
     // TODO: win condition
   }
@@ -49,6 +47,18 @@ class CocktailScene extends Phaser.Scene {
   update(time, delta) {
     this.field.update(time, delta);
     this.character.update(time, delta);
+  }
+
+  makeMusic() {
+      let musicList = ['essa', 'lamp', 'variant', 'aalien','ear-ape'];
+      this.bgMusic = this.sound.add(lodash.sample(musicList));
+      this.bgMusic.loop = false
+      this.bgMusic.volume = 0.2
+      this.bgMusic.play()
+
+      this.bgMusic.on('ended', (sound) => {
+          this.makeMusic()
+      });
   }
 }
 
