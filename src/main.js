@@ -1,5 +1,6 @@
 import 'phaser';
 import IntroScene from './scenes/IntroScene'
+import TutorialScene from './scenes/TutorialScene'
 import CocktailScene from './scenes/CocktailScene';
 import GameOverScene from './scenes/GameOverScene'
 
@@ -19,7 +20,8 @@ const config = {
     //     }
     // },
     scene: [
-        //IntroScene,
+        IntroScene,
+        TutorialScene,
         CocktailScene,
         GameOverScene,
     ]

@@ -18,8 +18,9 @@ class CocktailScene extends Phaser.Scene {
   }
 
   create() {
-    // TODO: Intro menu scene
     // TODO: How-to-play scene? (Possibly communicate this info in Intro scene)
+    // TODO: Background music
+    
     // TODO: speed up sobering up
     this.audioManager = new AudioManager(this);
     this.animationManager = new AnimationManager(this);

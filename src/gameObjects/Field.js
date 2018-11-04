@@ -26,6 +26,7 @@ class Field {
   }
 
   createMatrix() {
+    // TODO: drop effect
     this.matrix = []
     for (let idxRow = 0; idxRow < numRows; idxRow++) {
       const row = []
@@ -36,6 +37,15 @@ class Field {
       }
       this.matrix.push(row)
     }
+
+    this.checkFieldHasRecipes()
+  }
+
+  destroyMatrix() {
+    const _this = this
+    this.matrix.forEach((row) => {
+      row.forEach(this.destroyComponent.bind(this))
+    })
   }
 
   update(time, delta) {
@@ -141,15 +151,21 @@ class Field {
     })
 
     this.spawnComponents()
+
+    this.checkFieldHasRecipes()
   }
 
   destroyComponents(components) {
-    components.forEach((component) => {
+    components.forEach(this.destroyComponent.bind(this))
+  }
+  
+  destroyComponent(component) {
+    if (component) {
       const idxRow = component.idxRow
       const idxCol = component.idxCol
       component.destroy()
       delete this.matrix[idxRow][idxCol]
-    })
+    }
   }
 
   dropCol(aboveIdxRow, idxCol) {
@@ -184,6 +200,43 @@ class Field {
         idxRow++
       }
     }
+  }
+
+  checkFieldHasRecipes() {
+    const uniqueComponents = this.findUniqueComponents()
+    let idxRecipe = 0
+    let recipeFound = false
+
+    while (!recipeFound && idxRecipe < recipes.length) {
+      let recipeExists = true
+      const recipe = recipes[idxRecipe]
+      recipe.components.forEach((compId) => {
+        const compIsPresent = uniqueComponents[compId] !== undefined
+        recipeExists = recipeExists && compIsPresent
+      })
+      recipeFound = recipeExists
+      idxRecipe++
+    }
+
+    if (!recipeFound) {
+      this.destroyMatrix()
+      this.matchText.show('No recipes left')
+      this.createMatrix()
+    }
+  }
+
+  findUniqueComponents() {
+    const uniqueComponents = {}
+    this.matrix.forEach((row) => {
+      row.forEach((component) => {
+        const compId = component.spec.id
+        if (!uniqueComponents[compId]) {
+          uniqueComponents[compId] = compId
+        }
+      })
+    })
+
+    return uniqueComponents
   }
 }
 

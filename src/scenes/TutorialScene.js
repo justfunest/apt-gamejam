@@ -1,10 +1,10 @@
-class IntroScene extends Phaser.Scene {
+class TutorialScene extends Phaser.Scene {
   constructor(test) {
-    super({key: 'IntroScene'})
+    super({key: 'TutorialScene'})
   }
 
   preload() {
-    // TODO: intro bg
+    // TODO: tutorial bg
     this.load.image('bg', 'assets/images/bg.jpg')
   }
 
@@ -19,16 +19,15 @@ class IntroScene extends Phaser.Scene {
     }, this)
 
     // TODO: button image
-    // TODO: button hover, down, out
-    this.text = this.add.text(600, 400, 'Start game')
+    this.text = this.add.text(600, 400, 'Back')
     this.text.tint = 0x3040b0
     this.text.setInteractive()
     const _this = this
     this.text.on('clicked', () => {
-      _this.scene.stop('IntroScene')
-      _this.scene.launch('CocktailScene')
+      _this.scene.stop('TutorialScene')
+      _this.scene.launch('IntroScene')
     })
   }
 }
 
-export default IntroScene
+export default TutorialScene
