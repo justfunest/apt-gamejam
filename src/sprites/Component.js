@@ -5,13 +5,13 @@ const offsetX = 120
 const offsetY = 120
 const tileWidth = 100
 const tileHeight = 100
-// TODO: margins/padding
 
 // milliseconds
 const dropDuration = 250
 
 class Component {
   constructor(scene, field, spec, idxRow, idxCol, isDropping = false) {
+    // TODO: cursor pointer?
     this.field = field;
     this.scene = scene;
     this.spec = spec
@@ -81,7 +81,6 @@ class Component {
         this.sprite.y = this.destY
         this.isDropping = false
       } else {
-        // TODO: factor out lerp
         const  safeDropDuration = dropDuration === 0 ? 0.0001 : dropDuration
         const fraction = elapsed / safeDropDuration
         this.sprite.y = this.origY + (this.destY - this.origY) * fraction

@@ -106,7 +106,7 @@ export const recipes = [
     },
     {
         id: 'vodka-lime',
-        name: 'Vodka with lime',
+        name: 'If you had one shot...',
         components: ['lime', 'vodka', 'shot-glass'],
         power: 18
     }

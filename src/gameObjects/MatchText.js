@@ -5,31 +5,36 @@ import {lerp} from '../lerp'
 
 const displayDuration = 1500
 const alphaMidPoint = 1200
-const origSize = 32
-const destSize = 64
+
+const origScale = 1
+const destScale = 2
+
 const origAlpha = 0.3
 const destAlpha = 1
 
 class MatchText {
   constructor(scene) {
     this.scene = scene
-    // TODO: placement
-    this.text = this.scene.add.bitmapText(150, 360, 'system', '', origSize)
-    this.text.depth = 10000
-    // TODO: different tint
-    this.text.tint = 0xe04050
 
     this.isDisplaying = false
     this.displayTimer = new Timer(displayDuration)
   }
 
   show(text) {
+    if (this.text) {
+      this.text.destroy()
+    }
+    this.text = this.scene.add.bitmapText(360, 360, 'system', '', 32)
+    this.text.originX = 0.5
+    this.text.depth = 10000
+    this.text.tint = 0x3040b0
+
     this.text.text = text
     this.isDisplaying = true
-    this.text.fontSize = origSize
+    this.text.scaleX = origScale
+    this.text.scaleY = origScale
     this.origAngle = lodash.random(-20, 0)
     this.destAngle = lodash.random(1, 20)
-    // TODO: anchor (angle pivot) is off
     this.text.angle = this.origAngle
     this.text.alpha = origAlpha
     this.text.visible = true
@@ -46,7 +51,8 @@ class MatchText {
         this.text.visible = false
       } else {
         const fraction = elapsed / displayDuration
-        this.text.fontSize = lerp(origSize, destSize, fraction)
+        this.text.scaleX = lerp(origScale, destScale, fraction)
+        this.text.scaleY = lerp(origScale, destScale, fraction)
         this.text.angle = lerp(this.origAngle, this.destAngle, fraction)
         this.updateAlpha(elapsed)
       }
@@ -54,6 +60,7 @@ class MatchText {
   }
   
   updateAlpha(elapsed) {
+    // TODO: better alpha interpolation
     if (elapsed < alphaMidPoint) {
       const fraction = elapsed / alphaMidPoint
       this.text.alpha = lerp(origAlpha, destAlpha, fraction)
