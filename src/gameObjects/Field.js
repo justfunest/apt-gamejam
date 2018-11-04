@@ -19,10 +19,11 @@ class Field {
 
   createBackground() {
     // TODO: hardcoded dimensions and offsets
-    this.background = this.scene.add.sprite(370, 370, 'field-bg')
-    this.background.alpha = 0.6
-    this.background.displayWidth = 650
-    this.background.displayHeight = 650
+    this.background = this.scene.add.sprite(380, 370, 'field-bg')
+    // TODO: check alpha
+    // this.background.alpha = 0.6
+    this.background.displayWidth = 720
+    this.background.displayHeight = 720
   }
 
   createMatrix() {
