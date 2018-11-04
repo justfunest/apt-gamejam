@@ -4,8 +4,7 @@ class IntroScene extends Phaser.Scene {
   }
 
   preload() {
-    // TODO: intro bg
-    this.load.image('bg', 'assets/images/bg.jpg')
+    this.load.image('bg', 'assets/images/title-bg.png')
   }
 
   create() {
