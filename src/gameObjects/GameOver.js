@@ -21,9 +21,11 @@ class GameOver {
   }
 
   goToScene(name, data) {
+      this.scene.bgMusic.stop();
+
       this.scene.scene.stop('GameOverScene');
       this.scene.scene.launch(name, data);
-      this.scene.bgMusic.stop();
+
   }
 }
 

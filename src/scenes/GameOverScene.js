@@ -6,7 +6,6 @@ class GameOverScene extends Phaser.Scene {
   preload() {
     this.load.image('lose-bg', 'assets/images/lose-bg.png')
     this.load.image('win-bg', 'assets/images/win-bg.png')
-
     this.load.image('btn-replay', 'assets/images/btn-replay.png')
   }
 
@@ -39,9 +38,15 @@ class GameOverScene extends Phaser.Scene {
     this.replayBtn.setInteractive()
     const _this = this
     this.replayBtn.on('clicked', () => {
-      _this.scene.stop('GameOverScene')
-      _this.scene.launch('CocktailScene')
+        _this.goToScene('CocktailScene')
     })
+  }
+
+  goToScene(name, data) {
+      this.bgMusic.stop();
+      this.scene.stop('GameOverScene');
+      this.scene.launch(name, data);
+
   }
 
   update(time, delta) {

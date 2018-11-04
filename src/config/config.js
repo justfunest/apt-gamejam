@@ -241,7 +241,7 @@ export const CHARACTER_STATE = {
     soberness: {
         max : 500,
         current: 250,
-        decayRate: 0.1
+        decayRate: 0.05
     },
     position: {
         x: 900,
