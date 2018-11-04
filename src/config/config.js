@@ -303,8 +303,8 @@ export const ANIMATIONS = {
 }
 export const CHARACTER_STATE = {
     soberness: {
-        max : 500,
-        current: 250,
+        max : 100,
+        current: 50,
         decayRate: 0.05
     },
     position: {
