@@ -23,17 +23,17 @@ class GameOverScene extends Phaser.Scene {
     this.bg.displayWidth = 1200
     this.bg.displayHeight = 800
 
-    this.bgMusic = this.sound.add(this.state.won ? 'lose' : 'win')
-    this.bgMusic.loop = true
-    this.bgMusic.volume = 0.3
-    this.bgMusic.play()
+    // this.bgMusic = this.sound.add(this.state.won ? 'lose' : 'win')
+    // this.bgMusic.loop = true
+    // this.bgMusic.volume = 0.3
+    // this.bgMusic.play()
 
     this.input.on('gameobjectup', (pointer, gameObj) => {
       gameObj.emit('clicked', gameObj)
     }, this)
 
     // TODO: button hover, down, out
-    this.replayBtn = this.add.sprite(700, 600, 'btn-replay')
+    this.replayBtn = this.add.sprite(950, 700, 'btn-replay')
     this.replayBtn.scaleX = 0.5
     this.replayBtn.scaleY = 0.5
     this.replayBtn.setInteractive()
