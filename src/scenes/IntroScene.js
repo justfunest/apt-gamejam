@@ -4,14 +4,17 @@ class IntroScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('bg', 'assets/images/title-bg.png')
+    this.load.image('title-bg', 'assets/images/title-bg.png')
+
+    this.load.image('btn-instructions', 'assets/images/btn-instructions.png')
+    this.load.image('btn-play', 'assets/images/btn-play.png')
   }
 
   create() {
     // TODO: music
 
     // TODO: hardcoded image dimensions and offsets
-    this.bg = this.add.sprite(600, 400, 'bg')
+    this.bg = this.add.sprite(600, 400, 'title-bg')
     this.bg.displayWidth = 1200
     this.bg.displayHeight = 800
     
@@ -19,13 +22,15 @@ class IntroScene extends Phaser.Scene {
       gameObj.emit('clicked', gameObj)
     }, this)
 
-    // TODO: button image
+    // TODO: instructions button
+
     // TODO: button hover, down, out
-    this.text = this.add.text(600, 400, 'Start game')
-    this.text.tint = 0x3040b0
-    this.text.setInteractive()
+    this.playBtn = this.add.sprite(700, 600, 'btn-play')
+    this.playBtn.scaleX = 0.5
+    this.playBtn.scaleY = 0.5
+    this.playBtn.setInteractive()
     const _this = this
-    this.text.on('clicked', () => {
+    this.playBtn.on('clicked', () => {
       _this.scene.stop('IntroScene')
       _this.scene.launch('CocktailScene')
     })
