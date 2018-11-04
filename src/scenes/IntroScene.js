@@ -36,10 +36,7 @@ class IntroScene extends Phaser.Scene {
       gameObj.emit('out', gameObj)
     }, this)
 
-    // TODO: instructions button
-
-    // TODO: button hover, down, out
-    this.playBtn = this.add.sprite(700, 600, 'btn-play')
+    this.playBtn = this.add.sprite(700, 550, 'btn-play')
     this.playBtn.scaleX = 0.5
     this.playBtn.scaleY = 0.5
     this.playBtn.setInteractive()
@@ -51,6 +48,20 @@ class IntroScene extends Phaser.Scene {
     })
     this.playBtn.on('out', () => {
       this.playBtn.setTexture('btn-play')
+    })
+
+    this.instrBtn = this.add.sprite(700, 700, 'btn-instructions')
+    this.instrBtn.scaleX = 0.5
+    this.instrBtn.scaleY = 0.5
+    this.instrBtn.setInteractive()
+    this.instrBtn.on('clicked', () => {
+      this.goToScene('TutorialScene')
+    })
+    this.instrBtn.on('over', () => {
+      this.instrBtn.setTexture('btn-hi-instructions')
+    })
+    this.instrBtn.on('out', () => {
+      this.instrBtn.setTexture('btn-instructions')
     })
 
     this.bgMusic = this.sound.add('essa');
